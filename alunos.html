@@ -1,0 +1,15 @@
+<ion-view view-title="Alunos" class="alunos-select-view">
+  <ion-nav-bar></ion-nav-bar>
+  <ion-content class="has-header">
+    <gvm-messages name="connectionStatus"></gvm-messages>
+    <gvm-messages></gvm-messages>
+    <ul class="list">
+      <li class="item item-checkbox item-icon-right item-text-wrap" ng-click="loadAluno(aluno)"  ng-repeat="aluno in alunos">
+        <i class="icon"><div class="message-avatar" style="background-image: url({{aluno.foto}})"></div></i>
+        <label class="checkbox">
+          <input type="radio" name="aluno" ng-checked="aluno.id==atual.id"></label>
+        {{aluno.nome}}
+      </li>
+    </ul>
+  </ion-content>
+</ion-view>

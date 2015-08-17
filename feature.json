@@ -1,0 +1,13 @@
+{
+    "id": "EF46DA7F-D514-43B2-BE32-9E5F71CE071F",
+    "cowner": "9E623A00-A5F7-4DF8-8D50-1E449D419B26",
+    "mode": 1,
+    "alias": "aluno.modulo",
+    "deps": [
+        "core"
+    ],
+    "scripts": [
+        "**/*.module.js",
+        "**/*.js"
+    ]
+}

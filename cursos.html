@@ -1,0 +1,14 @@
+<ion-view view-title="Cursos">
+    <ion-nav-bar></ion-nav-bar>
+    <ion-content class="has-header">
+        <gvm-messages name="connectionStatus"></gvm-messages>
+        <gvm-messages></gvm-messages>
+        <ul class="list">
+            <li class="item item-checkbox" ng-click="loadCurso(curso)"  ng-repeat="curso in cursos">
+                <label class="checkbox">
+                    <input type="radio" name="curso" ng-checked="curso.id==atual.id"></label>
+                {{curso.descricao}}
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>
