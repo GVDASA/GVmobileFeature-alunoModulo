@@ -1,7 +1,7 @@
 angular.module('aluno.modulo')
     .factory('serviceDefinicaoAluno', ServiceDefinicaoAluno);
 
-function ServiceDefinicaoAluno($rootScope, $q, localStorage, AppModulos, sidemenuService, navigationService, controleAcesso) {
+function ServiceDefinicaoAluno($rootScope, $q, $filter, localStorage, AppModulos, sidemenuService, navigationService, controleAcesso) {
     return {
         selecionarAluno: selecionarAluno,
         selecionarCurso: selecionarCurso,
@@ -75,7 +75,7 @@ function ServiceDefinicaoAluno($rootScope, $q, localStorage, AppModulos, sidemen
     function getCursos() {
         var aluno = getAlunoSelecionado();
         if (aluno) {
-            return aluno.cursos;
+            return $filter('unique')(aluno.cursos, 'id');
         }
         return;
     };
@@ -110,14 +110,10 @@ function ServiceDefinicaoAluno($rootScope, $q, localStorage, AppModulos, sidemen
     };
 
     function getContextData() {
-        var curso = getCursoSelecionado();
-        var alunoSelecionado = getAlunoSelecionado();
         return {
-            empresa: curso.codEmpresa,
-            unidade: curso.codUnidade,
-            curso: curso.id,
-            ciclo: curso.codCiclo,
-            papeis: alunoSelecionado.papeisLogado
-        }
+            unidade: getUnidadeSelecionada(),
+            curso: getCursoSelecionado(),
+            aluno: getAlunoSelecionado()
+        };
     };
 };

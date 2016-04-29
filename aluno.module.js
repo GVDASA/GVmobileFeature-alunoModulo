@@ -21,14 +21,6 @@ angular.module('aluno.modulo', [
 		}]
 	}]);
 	NotificacoesProvider.addType([{
-		tipo: "aviso",
-		modulo: "aluno",
-		feature: "aluno.modulo",
-		desc: "Avisos",
-		urlBase: "/main/aviso/",
-		classe: "ion-pin",
-		params: null
-	}, {
 		tipo: "sala",
 		modulo: "aluno",
 		feature: "aluno.modulo",
@@ -84,5 +76,28 @@ angular.module('aluno.modulo', [
 		modulo: 'aluno',
 		descricao: 'Ver outros cursos',
 		iconCls: 'ion-university'
+	}]);
+})
+
+.run(function(ajudaService){
+	
+	ajudaService.addSecao('aluno.modulo', [{
+		"title": "Aluno",
+		"questoes": [{
+			"title": "Como faço para visualizar os dados de outro aluno?",
+			"text": "Se você possui mais de um aluno vinculado em seu perfil, como outro dependente ou filho(a), vá até o menu principal e clique no nome do aluno. Selecione a opção <strong>Mudar aluno</strong> e selecione o outro aluno."
+		}]
+	}, {
+		"title": "Cursos",
+		"questoes": [{
+			"title": "Como faço para visualizar os dados de outro curso?",
+			"text": "Se você possui mais de um curso vinculado no período atual, vá até o menu principal e clique no nome do aluno. Selecione a opção <strong>Ver outros cursos</strong> e selecione o curso desejado."
+		}]
+	}, {
+		"title": "Lembretes ",
+		"questoes": [{
+			"title": "Por que não estou recebendo os lembretes que marquei?",
+			"text": "Você deverá estar conectado a uma rede Wi-Fi, 3g ou 4g para receber os lembretes."
+		}]
 	}]);
 });
